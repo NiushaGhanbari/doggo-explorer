@@ -1,0 +1,5 @@
+@import "../../../../assets/variables.scss";
+
+::ng-deep .mat-expansion-panel-header[aria-disabled="true"] {
+  color: black !important;
+}

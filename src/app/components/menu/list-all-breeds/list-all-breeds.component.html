@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>List of All Breeds</h2>
+  <mat-accordion>
+    @for (option of allBreeds; track option) {
+    <mat-expansion-panel [disabled]="!option.subbreed.length">
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ option.breed }} </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="d-flex">
+        @for (subbreed of option.subbreed; track subbreed) {
+        <button
+          mat-button
+          color="primary"
+          (click)="navigate(option.breed, subbreed)"
+        >
+          {{ subbreed }}
+        </button>
+        }
+      </div>
+    </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>

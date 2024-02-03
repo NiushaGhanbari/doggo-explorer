@@ -1,0 +1,29 @@
+<div
+  class="header m-b-1"
+  (window:scroll)="onScrolling()"
+  [class.sticky]="isFixedHeader"
+>
+  <div class="container d-flex jus-between al-center p-t-1 p-b-1">
+    <button
+      class="logo"
+      mat-button
+      color="primary"
+      aria-label="home icon"
+      (click)="navigateToHome()"
+    >
+      <span>Doggo Explorer</span>
+    </button>
+    <div>
+      @for (option of headerOptions; track option) {
+      <button
+        mat-button
+        class="m-r-1"
+        color="primary"
+        (click)="navigate(option.route)"
+      >
+        {{ option.label }}
+      </button>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@import "../../../../assets/variables.scss";
+
+.header {
+  height: 4.8rem;
+  background-color: $white;
+  box-shadow: 0px 0px 2rem $shadow-light-grey;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.8rem;
+}

@@ -21,10 +21,10 @@ export class HeaderComponent {
 
   public isFixedHeader: boolean = false;
   public headerOptions = [
-    { label: 'List all breeds', route: 'list-all-breads' },
+    { label: 'List all breeds', route: 'list-all-breeds' },
     { label: 'Random image', route: 'random-image' },
-    { label: 'By breed', route: 'by-bread' },
-    { label: 'By sub-breed', route: 'by-sub-bread' },
+    { label: 'By breed', route: 'by-breed' },
+    { label: 'By sub-breed', route: 'by-sub-breed' },
   ];
   navigateToHome() {
     this.router.navigate(['']);

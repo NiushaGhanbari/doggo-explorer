@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, map, take, takeUntil } from 'rxjs';
-import { ApiBreadsService } from '../../core/services/api-breads.service';
+import { ApiBreedsService } from '../../core/services/api-breeds.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,13 +28,13 @@ import { transformToNewForma } from '../../shared/helpers';
     ReactiveFormsModule,
     AsyncPipe,
   ],
-  providers: [ApiBreadsService],
+  providers: [ApiBreedsService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
   constructor(
-    private apiBreadsService: ApiBreadsService,
+    private apiBreedsService: ApiBreedsService,
     private router: Router
   ) {}
 
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllBreeds() {
-    this.apiBreadsService
+    this.apiBreedsService
       .getAllBreeds()
       .pipe(
         take(1),
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
   }
 
   getRandomImage() {
-    this.apiBreadsService
+    this.apiBreedsService
       .getRandomImage()
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {

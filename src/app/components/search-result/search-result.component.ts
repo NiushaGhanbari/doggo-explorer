@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiBreadService } from '../../core/services/api-bread.service';
+import { ApiBreedService } from '../../core/services/api-breed.service';
 import { Subject, take, takeUntil } from 'rxjs';
 import {
   MAT_DIALOG_DATA,
@@ -19,7 +19,7 @@ import {
 export class SearchResultComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private apiBreadService: ApiBreadService,
+    private apiBreedService: ApiBreedService,
     public dialog: MatDialog
   ) {}
 
@@ -35,7 +35,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   getImagesBySubBreed(breed: string, subbreed: string) {
-    this.apiBreadService
+    this.apiBreedService
       .getImagesBySubBreed(breed, subbreed)
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {
@@ -44,7 +44,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   getImagesByBreed(breed: string) {
-    this.apiBreadService
+    this.apiBreedService
       .getImagesByBreed(breed)
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {

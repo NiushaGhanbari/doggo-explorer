@@ -6,6 +6,6 @@ import { ListAllBreedsComponent } from './components/menu/list-all-breeds/list-a
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'result', component: SearchResultComponent },
-    { path: 'list-all-breads', component: ListAllBreedsComponent },
+    { path: 'list-all-breeds', component: ListAllBreedsComponent },
   ];
   

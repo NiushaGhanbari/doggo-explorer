@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ApiBreadsService } from '../../core/services/api-breads.service';
+import { ApiBreedsService } from '../../core/services/api-breeds.service';
 import { HomeComponent } from './home.component';
 import { of } from 'rxjs';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let apiBreadsService: ApiBreadsService;
+  let apiBreedsService: ApiBreedsService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,15 +15,15 @@ describe('HomeComponent', () => {
       declarations: [HomeComponent],
       providers: [
         {
-          provide: ApiBreadsService,
+          provide: ApiBreedsService,
           useValue: {
-            getBreads: () => of([]),
+            getBreeds: () => of([]),
           },
         },
       ],
     }).compileComponents();
 
-    apiBreadsService = TestBed.inject(ApiBreadsService);
+    apiBreedsService = TestBed.inject(ApiBreedsService);
   });
 
   beforeEach(() => {
@@ -36,7 +36,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have injected the apiBreadsService', () => {
-    expect(apiBreadsService).toBeTruthy();
+  it('should have injected the apiBreedsService', () => {
+    expect(apiBreedsService).toBeTruthy();
   });
 });

@@ -6,7 +6,7 @@ import { BreedsList } from '../models/breed.types';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiBreadService {
+export class ApiBreedService {
   constructor(private httpClient: HttpClient) {}
 
   API = 'https://dog.ceo/api/breed';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, take, takeUntil } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ApiBreadsService } from '../../../core/services/api-breads.service';
+import { ApiBreedsService } from '../../../core/services/api-breeds.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ListAllBreedsComponent implements OnInit {
   constructor(
-    private apiBreadsService: ApiBreadsService,
+    private apiBreedsService: ApiBreedsService,
     private router: Router
   ) {}
 
@@ -26,7 +26,7 @@ export class ListAllBreedsComponent implements OnInit {
   }
 
   getAllBreeds() {
-    this.apiBreadsService
+    this.apiBreedsService
       .getAllBreeds()
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {

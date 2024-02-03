@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
 @include mat.core();
-$doggo-explorer-primary: mat.define-palette(mat.$indigo-palette);
+$doggo-explorer-primary: mat.define-palette(mat.$green-palette);
 $doggo-explorer-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $doggo-explorer-warn: mat.define-palette(mat.$red-palette);
 $doggo-explorer-theme: mat.define-light-theme(
@@ -21,5 +21,7 @@ body {
 }
 body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

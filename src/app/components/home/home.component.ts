@@ -3,11 +3,12 @@ import { Subject, take, takeUntil } from 'rxjs';
 import { ApiBreedsService } from '../../core/services/api-breeds.service';
 import { DogAutoSearchComponent } from '../../shared/components/dog-auto-search/dog-auto-search.component';
 import { Router } from '@angular/router';
+import { ListAllBreedsComponent } from '../menu/list-all-breeds/list-all-breeds.component';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [DogAutoSearchComponent],
+  imports: [DogAutoSearchComponent, ListAllBreedsComponent],
   providers: [ApiBreedsService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

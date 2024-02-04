@@ -78,7 +78,7 @@ export class DogAutoSearchComponent implements OnInit {
     if (event.option.value.isBreed) {
       queryParams['breed'] = selectedValue.name;
     } else {
-      queryParams['sub_breed'] = selectedValue.name;
+      queryParams['subBreed'] = selectedValue.name;
       queryParams['breed'] = selectedValue.breed;
     }
     this.optionSelected.emit(queryParams);

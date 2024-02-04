@@ -25,6 +25,7 @@ export class HeaderComponent {
     { label: 'Random image', route: 'random-image' },
     { label: 'By breed', route: 'by-breed' },
     { label: 'By sub-breed', route: 'by-sub-breed' },
+    { label: 'Browse breed list', route: 'browse-breed-list' },
   ];
   navigateToHome() {
     this.router.navigate(['']);

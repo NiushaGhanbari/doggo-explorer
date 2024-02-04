@@ -34,7 +34,7 @@ export class RandomImageComponent {
     Validators.min(1),
     Validators.max(50),
   ]);
-  private selectedOption!: { breed: string; sub_breed: string };
+  private selectedOption!: { breed: string; subBreed: string };
   public images: string[] = [];
   private destroy$ = new Subject();
 
@@ -43,7 +43,7 @@ export class RandomImageComponent {
     private apiBreedService: ApiBreedService
   ) {}
 
-  onOptionSelected(option: { breed: string; sub_breed: string }) {
+  onOptionSelected(option: { breed: string; subBreed: string }) {
     this.selectedOption = option;
   }
 
@@ -65,9 +65,9 @@ export class RandomImageComponent {
       });
   }
   getRandomImageBySubBreed(numberValue: number) {
-    const { breed, sub_breed } = this.selectedOption;
+    const { breed, subBreed } = this.selectedOption;
     this.apiBreedService
-      .getRandomImageBySubBreed(breed, sub_breed, numberValue)
+      .getRandomImageBySubBreed(breed, subBreed, numberValue)
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {
         this.images = res;
@@ -78,7 +78,7 @@ export class RandomImageComponent {
     const numberValue = this.imageNumber.value;
     if (!numberValue) return;
     if (this.selectedOption) {
-      this.selectedOption.sub_breed
+      this.selectedOption.subBreed
         ? this.getRandomImageBySubBreed(numberValue)
         : this.getRandomImageByBreed(numberValue);
     } else {

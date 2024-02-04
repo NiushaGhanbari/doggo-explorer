@@ -22,15 +22,15 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      params['sub_breed']
-        ? this.getImagesBySubBreed(params['breed'], params['sub_breed'])
+      params['subBreed']
+        ? this.getImagesBySubBreed(params['breed'], params['subBreed'])
         : this.getImagesByBreed(params['breed']);
     });
   }
 
-  getImagesBySubBreed(breed: string, subbreed: string) {
+  getImagesBySubBreed(breed: string, subBreed: string) {
     this.apiBreedService
-      .getImagesBySubBreed(breed, subbreed)
+      .getImagesBySubBreed(breed, subBreed)
       .pipe(take(1), takeUntil(this.destroy$))
       .subscribe((res) => {
         this.images = res;

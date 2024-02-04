@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ApiBreedsService } from '../../../core/services/api-breeds.service';
 import { Router } from '@angular/router';
+import { BreedsList } from '../../../core/models/breed.types';
 
 @Component({
   selector: 'app-list-all-breeds',
@@ -19,28 +20,30 @@ export class ListAllBreedsComponent implements OnInit {
   ) {}
 
   private destroy$ = new Subject();
-  public allBreeds: any;
+  public allBreeds!: { breed: string; subBreed: any }[];
 
   ngOnInit(): void {
     this.getAllBreeds();
   }
 
-  getAllBreeds() {
+  getAllBreeds(): void {
     this.apiBreedsService
       .getAllBreeds()
       .pipe(take(1), takeUntil(this.destroy$))
-      .subscribe((res) => {
-        this.allBreeds = Object.entries(res).map(([breed, subbreed]) => ({
-          breed,
-          subbreed,
-        }));
-      });
+      .subscribe((res) => this.mapBreedsResponse(res));
   }
 
-  navigate(breed: string, sub_breed: string) {
-    const queryParams: { [key: string]: string } = {
+  private mapBreedsResponse(response: BreedsList): void {
+    this.allBreeds = Object.entries(response).map(([breed, subBreed]) => ({
       breed,
-      sub_breed,
+      subBreed,
+    }));
+  }
+
+  navigateToResult(breed: string, subBreed?: string): void {
+    const queryParams: Record<string, string> = {
+      breed,
+      ...(subBreed && { subBreed }),
     };
     this.router.navigate(['/result'], { queryParams });
   }

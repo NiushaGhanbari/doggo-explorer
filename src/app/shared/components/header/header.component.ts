@@ -16,7 +16,6 @@ import { isPlatformBrowser } from '@angular/common';
 export class HeaderComponent {
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: unknown
   ) {}
 
   public isFixedHeader: boolean = false;

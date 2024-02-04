@@ -21,11 +21,13 @@ export class SearchResultComponent implements OnInit {
   public images: string[] = [];
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      params['subBreed']
-        ? this.getImagesBySubBreed(params['breed'], params['subBreed'])
-        : this.getImagesByBreed(params['breed']);
-    });
+    this.route.queryParams
+      .pipe(take(1), takeUntil(this.destroy$))
+      .subscribe((params) => {
+        params['subBreed']
+          ? this.getImagesBySubBreed(params['breed'], params['subBreed'])
+          : this.getImagesByBreed(params['breed']);
+      });
   }
 
   getImagesBySubBreed(breed: string, subBreed: string) {

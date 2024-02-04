@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   FormControl,
   FormsModule,
@@ -29,7 +29,7 @@ import { GalleryComponent } from '../../../shared/components/gallery/gallery.com
   templateUrl: './random-image.component.html',
   styleUrl: './random-image.component.scss',
 })
-export class RandomImageComponent {
+export class RandomImageComponent implements OnDestroy {
   public imageNumber = new FormControl(1, [
     Validators.min(1),
     Validators.max(50),

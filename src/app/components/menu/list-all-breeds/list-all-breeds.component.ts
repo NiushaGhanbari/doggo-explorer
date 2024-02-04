@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, take, takeUntil } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -13,14 +13,14 @@ import { BreedsList } from '../../../core/models/breed.types';
   templateUrl: './list-all-breeds.component.html',
   styleUrl: './list-all-breeds.component.scss',
 })
-export class ListAllBreedsComponent implements OnInit {
+export class ListAllBreedsComponent implements OnInit, OnDestroy {
   constructor(
     private apiBreedsService: ApiBreedsService,
     private router: Router
   ) {}
 
   private destroy$ = new Subject();
-  public allBreeds!: { breed: string; subBreed: any }[];
+  public allBreeds!: { breed: string; subBreed: string[] }[];
 
   ngOnInit(): void {
     this.getAllBreeds();

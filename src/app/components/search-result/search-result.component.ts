@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiBreedService } from '../../core/services/api-breed.service';
 import { Subject, take, takeUntil } from 'rxjs';
@@ -11,7 +11,7 @@ import { GalleryComponent } from '../../shared/components/gallery/gallery.compon
   templateUrl: './search-result.component.html',
   styleUrl: './search-result.component.scss',
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private apiBreedService: ApiBreedService

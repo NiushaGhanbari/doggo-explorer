@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {
@@ -28,7 +28,7 @@ import { transformToNewForma } from '../../helpers';
   templateUrl: './dog-auto-search.component.html',
   styleUrl: './dog-auto-search.component.scss',
 })
-export class DogAutoSearchComponent implements OnInit {
+export class DogAutoSearchComponent implements OnInit, OnDestroy {
   @Output() optionSelected = new EventEmitter();
   public myControl = new FormControl('');
   private allBreeds: Breed[] = [];

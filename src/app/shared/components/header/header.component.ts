@@ -1,15 +1,13 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatToolbarModule, MatTabsModule],
+  imports: [MatButtonModule, MatToolbarModule, MatTabsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

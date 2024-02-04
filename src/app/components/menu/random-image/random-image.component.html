@@ -10,14 +10,15 @@
           placeholder="Select Number of Images"
         />
         @if (imageNumber.invalid) {
-        <mat-error>Max number returned is 50</mat-error>
+        <mat-error>
+          The number of images must fall within the range of 1 to 50.</mat-error>
         }
       </mat-form-field>
       <app-dog-auto-search
         (optionSelected)="onOptionSelected($event)"
       ></app-dog-auto-search>
       <button mat-flat-button color="primary" (click)="fetchRandomImages()">
-        Fetch!
+        Show!
       </button>
     </form>
     <div class="flex-1 p-4">

@@ -3,3 +3,7 @@
 .random-image-form {
   max-width: 400px;
 }
+
+::ng-deep mat-error {
+  font-size: 0.8rem !important;
+}

@@ -4,32 +4,9 @@
       <h1>Uncover the Beauty of Different Dog Breeds</h1>
       <h2>A Heartwarming Collection of Dog Breeds</h2>
     </div>
-    <form class="search-form">
-      <mat-form-field class="full-width" appearance="outline">
-        <input
-          type="text"
-          placeholder="Search for a dog breed..."
-          aria-label="Number"
-          matInput
-          [formControl]="myControl"
-          [matAutocomplete]="auto"
-        />
-        <mat-icon class="white">search</mat-icon>
-        <mat-autocomplete
-          autoActiveFirstOption
-          [displayWith]="displayFn"
-          (optionSelected)="onOptionSelected($event)"
-          #auto="matAutocomplete"
-        >
-          @for (option of filteredOptions | async; track option) {
-          <mat-option [value]="option"
-            >{{ option.name }}
-            {{ option.isBreed ? "" : option.breed }}</mat-option
-          >
-          }
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
+    <app-dog-auto-search
+      (optionSelected)="navigateToResult($event)"
+    ></app-dog-auto-search>
   </div>
   <div class="random-image d-flex jus-center al-center">
     <img [src]="randomImage" alt="Playful dog" />

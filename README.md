@@ -9,10 +9,10 @@ npm install
 ng serve
 ```
 
-Navigate to [localhost](http://localhost:4200/) to access the application.
+Navigate to [http://localhost:4200/](http://localhost:4200/) to access the application.
 
 ## Running Unit Tests
-To execute the unit tests using Karma, run the following command:
+To execute the unit tests using [Karma](https://karma-runner.github.io), run the following command:
 ```bash
 ng test
 ```

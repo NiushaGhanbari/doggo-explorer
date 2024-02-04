@@ -14,6 +14,7 @@ export class ApiBreedsService {
   getAllBreeds(): Observable<BreedsList> {
     return this.httpClient.get<BreedsList>(`${this.API}/list/all`);
   }
+
   getRandomImage(): Observable<string> {
     return this.httpClient.get<string>(`${this.API}/image/random`);
   }

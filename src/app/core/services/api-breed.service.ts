@@ -10,6 +10,10 @@ export class ApiBreedService {
 
   API = 'https://dog.ceo/api/breed';
 
+  getSubBreeds(breed: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(`${this.API}/${breed}/list`);
+  }
+
   getImagesByBreed(breed: string): Observable<string[]> {
     return this.httpClient.get<string[]>(`${this.API}/${breed}/images`);
   }

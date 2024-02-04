@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="m-t-4">
+    <h1>Discover Dog Images by Sub Breed</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>Select Breed</mat-label>
+      <mat-select (selectionChange)="updateSelectedBreed($event)">
+        @for (breed of breeds; track breed) {
+        <mat-option [value]="breed">{{ breed }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="m-l-2">
+      <mat-label>Select Sub Breed</mat-label>
+      <mat-select
+        [disabled]="!selectedBreed"
+        (selectionChange)="getSubBreedImages($event)"
+      >
+        @for (subBreed of subBreeds; track subBreed) {
+        <mat-option [value]="subBreed">{{ subBreed }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<app-gallery [images]="images"></app-gallery>

@@ -1,7 +1,7 @@
 @import "../../../../assets/variables.scss";
 img {
   border-radius: $border-xl-radius;
-  box-shadow: 0px 0px 1rem $shadow-light-grey;
+  box-shadow: 0 0 1rem $shadow-light-grey;
   width: 16rem;
   cursor: pointer;
 }

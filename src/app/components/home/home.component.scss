@@ -2,9 +2,9 @@
 
 .random-image img {
   border-radius: $border-xxl-radius;
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 12rem;
+  max-width: 24rem;
   @media only screen and (max-width: 400px) {
-    max-width: 300px;
+    max-width: 12rem;
   }
 }

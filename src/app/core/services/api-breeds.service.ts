@@ -17,4 +17,9 @@ export class ApiBreedsService {
   getRandomImage(): Observable<string> {
     return this.httpClient.get<string>(`${this.API}/image/random`);
   }
+  getMultipleRandomImage(imageNumber: number): Observable<string[]> {
+    return this.httpClient.get<string[]>(
+      `${this.API}/image/random/${imageNumber}`
+    );
+  }
 }

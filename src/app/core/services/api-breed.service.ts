@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BreedsList } from '../models/breed.types';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +16,23 @@ export class ApiBreedService {
   getImagesBySubBreed(breed: string, subBreed: string): Observable<string[]> {
     return this.httpClient.get<string[]>(
       `${this.API}/${breed}/${subBreed}/images`
+    );
+  }
+  getRandomImageByBreed(
+    breed: string,
+    imageNumber: number
+  ): Observable<string[]> {
+    return this.httpClient.get<string[]>(
+      `${this.API}/${breed}/images/random/${imageNumber}`
+    );
+  }
+  getRandomImageBySubBreed(
+    breed: string,
+    subBreed: string,
+    imageNumber: number
+  ): Observable<string[]> {
+    return this.httpClient.get<string[]>(
+      `${this.API}/${breed}/${subBreed}/images/random/${imageNumber}`
     );
   }
 }

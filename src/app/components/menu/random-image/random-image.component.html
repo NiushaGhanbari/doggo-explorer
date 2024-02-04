@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-flex">
+    <form class="d-flex flex-col flex-1 p-4 random-image-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Number of Images</mat-label>
+        <input
+          type="number"
+          [formControl]="imageNumber"
+          matInput
+          placeholder="Select Number of Images"
+        />
+        @if (imageNumber.invalid) {
+        <mat-error>Max number returned is 50</mat-error>
+        }
+      </mat-form-field>
+      <app-dog-auto-search
+        (optionSelected)="onOptionSelected($event)"
+      ></app-dog-auto-search>
+      <button mat-flat-button color="primary" (click)="fetchRandomImages()">
+        Fetch!
+      </button>
+    </form>
+    <div class="flex-1 p-4">
+      <h1>Discover Random Dog Images by Breed and Sub Breed</h1>
+    </div>
+  </div>
+</div>
+<app-gallery [images]="images"></app-gallery>

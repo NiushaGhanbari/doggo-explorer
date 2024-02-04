@@ -58,8 +58,11 @@ export class DogAutoSearchComponent implements OnInit {
       });
   }
 
-  filter(value: string): any[] {
-    const filterValue = value.toLowerCase();
+  filter(value: string | { name: string }): Breed[] {
+    const filterValue =
+      typeof value === 'string'
+        ? value.toLowerCase()
+        : value.name.toLowerCase();
     return this.allBreeds.filter((option) =>
       option.name.toLowerCase().includes(filterValue)
     );

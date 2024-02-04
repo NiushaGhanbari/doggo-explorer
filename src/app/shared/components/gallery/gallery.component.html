@@ -1,0 +1,10 @@
+<div class="container">
+  @for (image of images; track image) {
+  <img
+    (click)="openImageModal(image)"
+    class="cursor-pointer m-1"
+    [src]="image"
+    alt="Facebook"
+  />
+  }
+</div>

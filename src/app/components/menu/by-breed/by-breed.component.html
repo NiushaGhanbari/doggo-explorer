@@ -1,0 +1,14 @@
+<div class="container">
+    <div>
+        <h1>Discover Dog Images by Breed</h1>
+        <mat-form-field appearance="outline"> 
+            <mat-label>Select Breed</mat-label>
+            <mat-select (selectionChange)="getBreedImages($event)">
+                @for (breed of breeds; track breed) {
+              <mat-option [value]="breed">{{ breed }}</mat-option>
+                      }
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<app-gallery [images]="images"></app-gallery>

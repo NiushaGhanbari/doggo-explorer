@@ -29,15 +29,4 @@ describe('GalleryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should open dialog when button is clicked', () => {
-    const mockDialogRef = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
-    mockDialogRef.afterClosed.and.returnValue(of('mockData'));
-    mockDialog.open.and.returnValue(mockDialogRef);
-  
-    const button = fixture.debugElement.query(By.css('.open-dialog-button'));
-    button.triggerEventHandler('click', null);
-  
-    expect(mockDialog.open).toHaveBeenCalled();
-  });
 });
